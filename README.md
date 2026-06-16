@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+  Bilal Hamdi
+</h1>
 
-## Getting Started
+<p align="center">
+  <strong>Senior React Native & Full-Stack Engineer</strong><br/>
+  Building scalable mobile and web products with clean architecture, performance, and great UX.
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="https://portfolio-74l9.vercel.app/" target="_blank">🌐 Live Portfolio</a> •
+  <a href="mailto:hamdibilal36@gmail.com">📩 Contact</a> •
+  <a href="https://github.com/bilal-prog" target="_blank">💻 GitHub</a> •
+  <a href="https://ma.linkedin.com/in/bilal-hamdi-844b5220b" target="_blank">🔗 LinkedIn</a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👋 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I’m a **Senior Full-Stack & React Native Developer** focused on building **production-grade mobile and web applications**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+I specialize in turning complex product requirements into scalable systems with clean architecture, real-time capabilities, and strong performance standards.
 
-## Learn More
+I work comfortably across:
 
-To learn more about Next.js, take a look at the following resources:
+- Mobile (React Native / Expo)
+- Full-stack (Node.js, Express, MongoDB)
+- Modern web apps (Next.js, TypeScript)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧭 What I Build
 
-## Deploy on Vercel
+I help teams build and scale:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 📱 **Cross-platform mobile apps** (React Native / Expo)
+- 🌐 **Full-stack SaaS platforms**
+- ⚡ **Real-time systems** (notifications, scheduling, live updates)
+- 🧩 **Scalable backend architectures & APIs**
+- 🎯 **Performance-focused UI/UX systems**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 Portfolio Highlights
+
+### 📅 Appointly (Flagship Project)
+
+A real-time appointment booking system with scheduling, notifications, and role-based access.
+
+- Real-time updates via Socket.IO
+- Email notification system
+- Scalable backend architecture
+- Designed for service-based businesses
+
+---
+
+### 🛒 E-Shop Platform
+
+Full-stack e-commerce system with product management and checkout flow.
+
+- Product catalog & filtering system
+- Secure backend APIs
+- Responsive UI/UX optimized for mobile
+
+---
+
+### 🧠 Enterprise Systems (NDA Projects)
+
+Multiple production-level applications built for business clients.
+
+- API design & integration
+- Backend scalability improvements
+- Mobile-first product development
+
+---
+
+## ⚙️ Tech Stack
+
+**Frontend**
+
+- Next.js (App Router)
+- React Native / Expo
+- Tailwind CSS
+- TypeScript
+
+**Backend**
+
+- Node.js / Express
+- MongoDB
+- Socket.IO
+- REST APIs
+
+**Tools & DevOps**
+
+- Git & GitHub
+- Docker (basic usage)
+- Vercel
+- Postman
+
+---
+
+## 📊 Experience Snapshot
+
+- 4+ years of development experience
+- 50+ projects delivered
+- 60+ APIs designed and implemented
+- Strong focus on production-ready systems
+
+---
+
+## 🧠 Engineering Mindset
+
+- I design systems for scalability from day one
+- I prioritize maintainability over shortcuts
+- I focus on performance, UX, and clean architecture
+- I build with a product mindset, not just code delivery
+
+---
+
+## 📫 Let’s Connect
+
+- 📧 Email: hamdibilal36@gmail.com
+- 💼 LinkedIn: [Bilal Hamdi](https://ma.linkedin.com/in/bilal-hamdi-844b5220b)
+- 🐙 GitHub: [@bilal-prog](https://github.com/bilal-prog)
+- 🌐 Portfolio: https://portfolio-74l9.vercel.app/
+
+---
+
+<p align="center">
+  <em>Open to Senior React Native / Full-Stack remote opportunities</em>
+</p>

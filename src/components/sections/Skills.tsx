@@ -6,31 +6,53 @@ const SKILL_CATEGORIES = [
   {
     title: "Frontend Development",
     skills: [
-      "React Native", "React.js", "Next.js", "TypeScript",
-      "JavaScript", "Redux Toolkit", "React Query", "Expo", "Tailwind CSS"
-    ]
+      "React Native",
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Redux Toolkit",
+      "React Query",
+      "Expo",
+      "Tailwind CSS",
+    ],
   },
   {
     title: "Backend Development",
     skills: [
-      "Node.js", "Express.js", "MongoDB", "Mongoose",
-      "REST APIs", "JWT Authentication", "Socket.IO"
-    ]
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "REST APIs",
+      "JWT Authentication",
+      "Socket.IO",
+    ],
   },
   {
     title: "Cloud & Integrations",
     skills: [
-      "Stripe", "Cloudinary", "Firebase", "OneSignal",
-      "Redis", "BullMQ"
-    ]
+      "Stripe",
+      "Cloudinary",
+      "Firebase",
+      "OneSignal",
+      "Redis",
+      "BullMQ",
+    ],
   },
   {
     title: "Tools & Platforms",
     skills: [
-      "Git", "GitHub", "Postman", "Swagger/OpenAPI",
-      "Docker", "VS Code", "Android Studio", "Xcode"
-    ]
-  }
+      "Git",
+      "GitHub",
+      "Postman",
+      "Swagger/OpenAPI",
+      "Docker",
+      "VS Code",
+      "Android Studio",
+      "Xcode",
+    ],
+  },
 ];
 
 export default function Skills() {
@@ -45,10 +67,11 @@ export default function Skills() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Technical <span className="text-accent">Arsenal</span>
+            Tech <span className="text-accent">Stack</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my expertise spanning full-stack development, mobile architecture, and modern cloud integrations.
+            A comprehensive overview of my expertise spanning full-stack
+            development, mobile architecture, and modern cloud integrations.
           </p>
         </motion.div>
 
