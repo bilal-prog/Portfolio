@@ -7,7 +7,7 @@ const EXPERIENCES = [
   {
     role: "Senior React Native Developer",
     company: "Multiple Enterprise Clients / Agencies",
-    period: "2022 - Present",
+    period: "2022 - Present ",
     highlights: [
       "Built and maintained 50+ enterprise e-commerce applications.",
       "Developed high-performance customer-facing mobile apps using React Native.",
