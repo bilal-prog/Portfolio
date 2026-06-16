@@ -7,7 +7,7 @@ const EXPERIENCES = [
   {
     role: "Senior React Native Developer",
     company: "Multiple Enterprise Clients / Agencies",
-    period: "2020 - Present",
+    period: "2022 - Present",
     highlights: [
       "Built and maintained 50+ enterprise e-commerce applications.",
       "Developed high-performance customer-facing mobile apps using React Native.",
@@ -15,9 +15,9 @@ const EXPERIENCES = [
       "Developed comprehensive administrative dashboards using React and Next.js.",
       "Optimized application performance, scalability, and state management.",
       "Collaborated with international teams to define and implement product roadmaps.",
-      "Delivered production-ready features used daily by thousands of end users."
-    ]
-  }
+      "Delivered production-ready features used daily by thousands of end users.",
+    ],
+  },
 ];
 
 export default function Experience() {
@@ -53,7 +53,7 @@ export default function Experience() {
                 <div className="hidden md:block col-span-1 text-right mt-1 text-muted-foreground font-medium">
                   {exp.period}
                 </div>
-                
+
                 <div className="md:hidden mb-2 text-accent font-medium text-sm">
                   {exp.period}
                 </div>
@@ -71,7 +71,10 @@ export default function Experience() {
                     </div>
                     <ul className="space-y-3">
                       {exp.highlights.map((item, i) => (
-                        <li key={i} className="text-muted-foreground flex items-start gap-3">
+                        <li
+                          key={i}
+                          className="text-muted-foreground flex items-start gap-3"
+                        >
                           <span className="text-accent mt-1.5">•</span>
                           <span>{item}</span>
                         </li>
