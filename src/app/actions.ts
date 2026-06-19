@@ -22,7 +22,7 @@ export async function sendContactEmail(formData: FormData) {
     secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 
@@ -48,6 +48,9 @@ export async function sendContactEmail(formData: FormData) {
     return { success: true };
   } catch (error) {
     console.error("Error sending email:", error);
-    return { success: false, error: "Failed to send email. Check configuration." };
+    return {
+      success: false,
+      error: "Failed to send email. Check configuration.",
+    };
   }
 }
