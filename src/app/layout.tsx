@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Bilal Hamdi | Senior React Native & Full-Stack Developer",
-  description: "Portfolio of Bilal Hamdi, a Senior React Native Developer & Full-Stack JavaScript Engineer from Morocco, building scalable mobile and web products.",
+  description:
+    "Portfolio of Bilal Hamdi, a Senior React Native Developer & Full-Stack JavaScript Engineer from Morocco, building scalable mobile and web products.",
 };
 
 export default function RootLayout({

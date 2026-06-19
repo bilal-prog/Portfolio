@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <strong>Senior React Native & Full-Stack Engineer</strong><br/>
+  <strong>Senior React Native & Full-Stack JavaScript Engineer</strong><br/>
   Building scalable mobile and web products with clean architecture, performance, and great UX.
 </p>
 
