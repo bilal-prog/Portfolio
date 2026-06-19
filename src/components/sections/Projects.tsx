@@ -21,7 +21,7 @@ const PROJECTS = [
     ],
     tech: ["TypeScript", "Node.js", "Express", "MongoDB", "Redis", "BullMQ", "Socket.IO", "Stripe", "Cloudinary", "OneSignal", "Swagger"],
     github: "#",
-    link: "#",
+    link: "https://appointly-back-office.vercel.app/",
     hasImage: false
   },
   {
