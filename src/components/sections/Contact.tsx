@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Send } from "lucide-react";
+import { sendContactEmail } from "@/app/actions";
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg
@@ -38,6 +40,24 @@ const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export default function Contact() {
+  const [isPending, startTransition] = React.useTransition();
+  const [status, setStatus] = React.useState<{ type: "idle" | "success" | "error", message: string }>({ type: "idle", message: "" });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    
+    startTransition(async () => {
+      const result = await sendContactEmail(formData);
+      if (result.success) {
+        setStatus({ type: "success", message: "Message sent successfully!" });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus({ type: "error", message: result.error || "Something went wrong." });
+      }
+    });
+  };
+
   return (
     <section id="contact" className="py-24 bg-card/30 border-t border-white/5">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -117,7 +137,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <form className="flex flex-col gap-4 p-8 rounded-2xl bg-card border border-card-border shadow-xl">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 rounded-2xl bg-card border border-card-border shadow-xl">
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="name"
@@ -128,8 +148,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  required
                   placeholder="John Doe"
                   className="bg-background border border-card-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors"
+                  disabled={isPending}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -142,8 +165,11 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  required
                   placeholder="john@example.com"
                   className="bg-background border border-card-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors"
+                  disabled={isPending}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -155,22 +181,27 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows={4}
                   placeholder="How can I help you?"
                   className="bg-background border border-card-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors resize-none"
+                  disabled={isPending}
                 />
               </div>
+              
+              {status.message && (
+                <div className={`p-3 rounded-lg text-sm ${status.type === "success" ? "bg-green-500/10 text-green-500 border border-green-500/20" : "bg-red-500/10 text-red-500 border border-red-500/20"}`}>
+                  {status.message}
+                </div>
+              )}
+
               <button
-                type="button"
-                className="mt-4 w-full bg-accent hover:bg-accent/90 text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 transition-all"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert(
-                    "This is a demo form. Please use the email link to contact me directly.",
-                  );
-                }}
+                type="submit"
+                disabled={isPending}
+                className="mt-4 w-full bg-accent hover:bg-accent/90 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 transition-all"
               >
-                Send Message <Send size={18} />
+                {isPending ? "Sending..." : "Send Message"} <Send size={18} />
               </button>
             </form>
           </motion.div>
