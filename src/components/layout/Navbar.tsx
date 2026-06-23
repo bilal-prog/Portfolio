@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -16,6 +16,8 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,16 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (resumeRef.current && !resumeRef.current.contains(event.target as Node)) {
+        setIsResumeOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -50,16 +62,22 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <div className="relative group">
+          <div className="relative" ref={resumeRef}>
             <button
-              className="px-4 py-2 rounded-full border border-accent/50 text-accent text-sm font-medium hover:bg-accent hover:text-white transition-all"
+              onClick={() => setIsResumeOpen(!isResumeOpen)}
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent text-sm font-medium hover:bg-accent hover:text-white transition-all flex items-center gap-1"
             >
-              Resume
+              Resume <ChevronDown size={14} className={`transition-transform duration-200 ${isResumeOpen ? "rotate-180" : ""}`} />
             </button>
-            <div className="absolute top-full right-0 mt-2 w-40 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div 
+              className={`absolute top-full right-0 mt-2 w-40 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 transition-all duration-200 ${
+                isResumeOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+              }`}
+            >
               <a
                 href="/CV_Bilal_Hamdi_English.pdf"
                 target="_blank"
+                onClick={() => setIsResumeOpen(false)}
                 className="block px-4 py-3 hover:bg-white/10 transition-colors text-sm font-medium text-foreground"
               >
                 English Version
@@ -67,6 +85,7 @@ export default function Navbar() {
               <a
                 href="/CV_Bilal_Hamdi_French.pdf"
                 target="_blank"
+                onClick={() => setIsResumeOpen(false)}
                 className="block px-4 py-3 hover:bg-white/10 transition-colors border-t border-white/5 text-sm font-medium text-foreground"
               >
                 French Version

@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail, ChevronDown } from "lucide-react";
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg
@@ -38,6 +39,19 @@ const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export default function Hero() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (resumeRef.current && !resumeRef.current.contains(event.target as Node)) {
+        setIsResumeOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -86,16 +100,22 @@ export default function Hero() {
               View Projects <ArrowRight size={20} />
             </a>
             
-            <div className="relative w-full sm:w-auto group">
+            <div className="relative w-full sm:w-auto" ref={resumeRef}>
               <button
+                onClick={() => setIsResumeOpen(!isResumeOpen)}
                 className="w-full sm:w-auto px-8 py-4 rounded-lg border border-white/10 bg-white/5 font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
               >
-                <Download size={20} /> Download Resume
+                <Download size={20} /> Download Resume <ChevronDown size={16} className={`transition-transform duration-200 ${isResumeOpen ? "rotate-180" : ""}`} />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-full sm:w-48 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div 
+                className={`absolute top-full left-0 mt-2 w-full sm:w-48 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 transition-all duration-200 ${
+                  isResumeOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                }`}
+              >
                 <a
                   href="/CV_Bilal_Hamdi_English.pdf"
                   target="_blank"
+                  onClick={() => setIsResumeOpen(false)}
                   className="block px-4 py-3 hover:bg-white/10 transition-colors text-sm font-medium"
                 >
                   English Version
@@ -103,6 +123,7 @@ export default function Hero() {
                 <a
                   href="/CV_Bilal_Hamdi_French.pdf"
                   target="_blank"
+                  onClick={() => setIsResumeOpen(false)}
                   className="block px-4 py-3 hover:bg-white/10 transition-colors border-t border-white/5 text-sm font-medium"
                 >
                   French Version
