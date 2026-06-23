@@ -85,13 +85,31 @@ export default function Hero() {
             >
               View Projects <ArrowRight size={20} />
             </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              className="w-full sm:w-auto px-8 py-4 rounded-lg border border-white/10 bg-white/5 font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
-            >
-              <Download size={20} /> Download Resume
-            </a>
+            
+            <div className="relative w-full sm:w-auto group">
+              <button
+                className="w-full sm:w-auto px-8 py-4 rounded-lg border border-white/10 bg-white/5 font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
+              >
+                <Download size={20} /> Download Resume
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-full sm:w-48 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <a
+                  href="/CV_Bilal_Hamdi_English.pdf"
+                  target="_blank"
+                  className="block px-4 py-3 hover:bg-white/10 transition-colors text-sm font-medium"
+                >
+                  English Version
+                </a>
+                <a
+                  href="/CV_Bilal_Hamdi_French.pdf"
+                  target="_blank"
+                  className="block px-4 py-3 hover:bg-white/10 transition-colors border-t border-white/5 text-sm font-medium"
+                >
+                  French Version
+                </a>
+              </div>
+            </div>
+
             <a
               href="#contact"
               className="w-full sm:w-auto px-8 py-4 rounded-lg text-foreground/80 font-semibold flex items-center justify-center hover:text-accent transition-all"

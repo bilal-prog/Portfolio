@@ -50,13 +50,29 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            className="px-4 py-2 rounded-full border border-accent/50 text-accent text-sm font-medium hover:bg-accent hover:text-white transition-all"
-          >
-            Resume
-          </a>
+          <div className="relative group">
+            <button
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent text-sm font-medium hover:bg-accent hover:text-white transition-all"
+            >
+              Resume
+            </button>
+            <div className="absolute top-full right-0 mt-2 w-40 bg-background/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <a
+                href="/CV_Bilal_Hamdi_English.pdf"
+                target="_blank"
+                className="block px-4 py-3 hover:bg-white/10 transition-colors text-sm font-medium text-foreground"
+              >
+                English Version
+              </a>
+              <a
+                href="/CV_Bilal_Hamdi_French.pdf"
+                target="_blank"
+                className="block px-4 py-3 hover:bg-white/10 transition-colors border-t border-white/5 text-sm font-medium text-foreground"
+              >
+                French Version
+              </a>
+            </div>
+          </div>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -86,14 +102,25 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            onClick={() => setIsOpen(false)}
-            className="mt-4 px-4 py-3 text-center rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors"
-          >
-            Download Resume
-          </a>
+          <div className="mt-4 flex flex-col gap-2">
+            <span className="text-sm font-medium text-muted-foreground px-2">Download Resume</span>
+            <a
+              href="/CV_Bilal_Hamdi_English.pdf"
+              target="_blank"
+              onClick={() => setIsOpen(false)}
+              className="px-4 py-3 text-center rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors"
+            >
+              English Version
+            </a>
+            <a
+              href="/CV_Bilal_Hamdi_French.pdf"
+              target="_blank"
+              onClick={() => setIsOpen(false)}
+              className="px-4 py-3 text-center rounded-lg border border-accent/50 text-accent font-medium hover:bg-accent/10 transition-colors"
+            >
+              French Version
+            </a>
+          </div>
         </motion.nav>
       )}
     </header>
